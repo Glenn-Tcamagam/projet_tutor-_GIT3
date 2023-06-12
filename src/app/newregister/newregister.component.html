@@ -1,0 +1,343 @@
+<div class="section-title mt-3" data-aos="fade-up">
+  <h2>Créer votre compte</h2>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto" data-aos="fade-up">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nom & Prénom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Entrer votre nom complet"
+        formControlName="fullname"
+        [ngClass]="{
+          'is-invalid': submitted && f['fullname'].errors
+        }"
+      />
+      <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+        <div *ngIf="f['fullname'].errors['required']">
+          Votre nom est obligatoire
+        </div>
+        <div *ngIf="f['fullname'].errors['pattern']">Vérifier votre nom</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Addresse Mail</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Entrer votre adresse mail"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid': submitted && f['email'].errors
+        }"
+      />
+      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['required']">
+          Votre mail est obligatoire
+        </div>
+        <div *ngIf="f['email'].errors['email']">
+          Votre mail n'est pas valide
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Entrer votre mot de passe"
+        formControlName="password"
+        [ngClass]="{
+          'is-invalid': submitted && f['password'].errors
+        }"
+      />
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">
+          Mot de Passe Obligatoire
+        </div>
+        <div *ngIf="f['password'].errors['pattern']">
+          Votre Mot de Passe est Faible
+        </div>
+        <div *ngIf="f['password'].errors['maxlength']">
+          Votre Mot de Passe ne doit pas contenir plus de 40 Caractères
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label"
+        >Confirme Mot de Passe</label
+      >
+      <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        placeholder="Confirmer votre mot de passe"
+        formControlName="confirmpassword"
+        [ngClass]="{
+          'is-invalid': submitted && f['confirmPassword'].errors
+        }"
+      />
+      <div
+        *ngIf="submitted && f['confirmPassword'].errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f['confirmPassword'].errors['required']">
+          Confirmer votre Mot de Passe
+        </div>
+        <div *ngIf="f['confirmPassword'].errors['matching']">
+          Votre Mot de Passe n'est pas correct
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="terms"
+        formControlName="acceptTerms"
+        [ngClass]="{
+          'is-invalid': submitted && f['acceptTerms'].errors
+        }"
+      />
+      <label class="form-check-label" for="terms"
+        >J'accepte les termes et conditions</label
+      >
+      <div
+        *ngIf="submitted && f['acceptTerms'].errors"
+        class="invalid-feedback"
+      >
+        Vous devez accepter les
+        <a href="#!" class="text-body"
+          ><u style="color: #0275d8">termes et condition</u></a
+        >
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="form-group">
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-outline-warning float-right"
+        >
+          Effacer
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-outline-primary">
+          S'enregistrer
+        </button>
+      </div>
+    </div>
+    <p class="text-center text-muted mt-4 mb-0">
+      Avez-vous déja un compte?
+      <a routerLink="/login-participant" class="fw-bold text-body"
+        ><u style="color: #0275d8">me connecter</u></a
+      >
+    </p>
+    <!-- <div class="text-center" data-aos="fade-up">
+      <button type="submit" class="btn btn-outline-primary col-6">
+        S'enregistrer
+      </button>
+    </div> -->
+  </form>
+</div>
+
+<!-- <section class="vh-100" style="background-color: #f3f5f7">
+
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-2">
+              <h2 class="text-uppercase text-center mb-4">Create an account</h2>
+              <div class="register-form">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="fullname">Your Name</label>
+                    <input
+                      type="text"
+                      id="fullname"
+                      class="form-control form-control-lg"
+                      formControlName="fullname"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['fullname'].errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && f['fullname'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['fullname'].errors['required']">
+                        Fullname is required
+                      </div>
+                      <div *ngIf="f['fullname'].errors['pattern']">
+                        Check your name
+                      </div>
+                    </div>
+                  </div>
+
+                 
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="email">Your Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control form-control-lg"
+                      formControlName="email"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['email'].errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && f['email'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['email'].errors['required']">
+                        Email is required
+                      </div>
+                      <div *ngIf="f['email'].errors['email']">
+                        Email is invalid
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="password">Your Phone</label>
+                    <input
+                      type="number"
+                      id="phone"
+                      class="form-control form-control-lg"
+                      formControlName="phone"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['phone'].errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && f['phone'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['phone'].errors['required']">
+                        Your phone number is required
+                      </div>
+                      <div *ngIf="f['phone'].errors['pattern']">
+                        your number must be comaroonian
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control form-control-lg"
+                      formControlName="password"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['password'].errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && f['password'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['password'].errors['required']">
+                        Password is required
+                      </div>
+                      <div *ngIf="f['password'].errors['pattern']">
+                        Password is not consistent
+                      </div>
+                      <div *ngIf="f['password'].errors['maxlength']">
+                        Username must not exceed 40 characters
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="confirmPassword"
+                      >Confirm password</label
+                    >
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      class="form-control form-control-lg"
+                      formControlName="confirmPassword"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['confirmPassword'].errors
+                      }"
+                    />
+                    <div
+                      *ngIf="submitted && f['confirmPassword'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['confirmPassword'].errors['required']">
+                        Confirm Password is required
+                      </div>
+                      <div *ngIf="f['confirmPassword'].errors['matching']">
+                        Confirm Password does not match
+                      </div>
+                    </div>
+                  </div>
+
+               
+                  <div class="form-check d-flex justify-content-center mb-4">
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="acceptTerms"
+                      formControlName="acceptTerms"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['acceptTerms'].errors
+                      }"
+                    />
+                    <label class="form-check-label" for="form2Example3g">
+                      I agree all statements in
+                      <a href="#!" class="text-body"
+                        ><u style="color: #0275d8">Terms of service</u></a
+                      >
+                    </label>
+                    <div
+                      *ngIf="submitted && f['acceptTerms'].errors"
+                      class="invalid-feedback"
+                    >
+                      Accept Terms is required
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center">
+                    <div class="form-group">
+                      <button
+                        type="button"
+                        (click)="onReset()"
+                        class="btn btn-outline-warning float-right"
+                      >
+                        Reset
+                      </button>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button type="submit" class="btn btn-primary">
+                        Register
+                      </button>
+                    </div>
+                  </div>
+
+                  <p class="text-center text-muted mt-4 mb-0">
+                    Have already an account?
+                    <a routerLink="/login-participant" class="fw-bold text-body"
+                      ><u style="color: #0275d8">Login here</u></a
+                    >
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

@@ -1,0 +1,85 @@
+<br />
+<!-- DEBUT TITRE FESTIVAL -->
+<div class="section-title" id="blocconcert" data-aos="fade-up">
+  <h2 id="festivals" class="text-warning">Les Festivals</h2>
+</div>
+<!-- FIN TITRE FESTIVAL -->
+
+<!-- DEBUT BARRE DE RECHERHCE FESTIVAL -->
+
+<form
+  class="form-inline"
+  [formGroup]="formrecherche"
+  (ngSubmit)="filterInput()"
+>
+  <div
+    id="blocsearchfestival"
+    class="d-flex justify-content-center align-items-center"
+    data-aos="fade-up"
+  >
+    <div id="blocinputfestival">
+      <input
+        id="inputfestival"
+        class="form-control my-2 my-sm-0 col-3"
+        type="search"
+        placeholder="Recherchez un festival"
+        aria-label="Search"
+        formControlName="search"
+        (keyup)="onKeyUp($event)"
+      />
+    </div>
+    <div id="blocbtnsearchfestival">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<!-- FIN BARRE DE RECHERHCE FESTIVAL-->
+
+<!-- DEBUT SECTION LISTE FESTIVAL -->
+
+<div
+  class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center m-2"
+  id="positioncardpetitecran"
+  data-aos="fade-up"
+>
+  <!-- <div class="row row-cols-1 row-cols-md-3 g-4 d-md-block">
+  <div class="col"> -->
+  <div
+    *ngFor="
+      let festival of filterinputsearch
+        | paginate : { itemsPerPage: 3, currentPage: p }
+    "
+    class="paginate"
+  >
+    <div class="card m-3" style="width: 22rem" festivalBorderCard>
+      <img [src]="festival.image" class="card-img-top" alt="..." />
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ festival.titre }}</h5>
+        <p class="card-text">
+          {{ festival.description }}
+        </p>
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        <div class="d-flex justify-content-center align-items-center">
+          <a (click)="goToInformationFestival(festival)"
+            ><button class="btn btn-warning" type="button">
+              Information
+            </button></a
+          >
+          &nbsp;
+          <a (click)="goToReservationFestival(festival)"
+            ><button class="btn btn-outline-primary" type="button">
+              RESERVER
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stylepaginate text-center" data-aos="fade-up">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<!-- FIN SECTION LISTE FESTIVAL -->

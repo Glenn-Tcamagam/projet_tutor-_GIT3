@@ -1,0 +1,84 @@
+<br />
+<!-- DEBUT TITRE CONFERENCE -->
+<div class="section-title" id="blocconcert" data-aos="fade-up">
+  <h2 id="conferences" class="text-warning">Les Conférences</h2>
+</div>
+<!-- FIN TITRE CONFERENCE -->
+
+<!-- DEBUT BARRE DE RECHERHCE CONCERT -->
+
+<form
+  class="form-inline"
+  [formGroup]="formrecherche"
+  (ngSubmit)="filterInput()"
+>
+  <div
+    id="blocsearchconference"
+    class="d-flex justify-content-center align-items-center"
+    data-aos="fade-up"
+  >
+    <div id="blocinputconference">
+      <input
+        id="inputconference"
+        class="form-control my-2 my-sm-0 col-3"
+        type="search"
+        placeholder="Recherchez une conference"
+        aria-label="Search"
+        formControlName="search"
+        (keyup)="onKeyUp($event)"
+      />
+    </div>
+    <div id="blocbtnsearchconference">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<!-- FIN BARRE DE RECHERHCE CONCERT-->
+<!-- DEBUT SECTION LISTE CONCERT -->
+
+<div
+  class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center m-2"
+  id="positioncardpetitecran"
+  data-aos="fade-up"
+>
+  <!-- <div class="row row-cols-1 row-cols-md-3 g-4 d-md-block">
+  <div class="col"> -->
+  <div
+    *ngFor="
+      let conference of filterinputsearch
+        | paginate : { itemsPerPage: 3, currentPage: p }
+    "
+    class="paginate"
+  >
+    <div class="card m-4" style="width: 22rem" conferenceBorderCard>
+      <img [src]="conference.image" class="card-img-top" alt="..." />
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ conference.titre }}</h5>
+        <p class="card-text">
+          {{ conference.description }}
+        </p>
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        <div class="d-flex justify-content-center align-items-center">
+          <a (click)="goToInformationConference(conference)"
+            ><button class="btn btn-warning" type="button">
+              Information
+            </button></a
+          >
+          &nbsp;
+          <a (click)="goToReservationConference(conference)"
+            ><button class="btn btn-outline-primary" type="button">
+              RESERVER
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stylepaginate text-center" data-aos="fade-up">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<!-- FIN SECTION LISTE CONCERT -->

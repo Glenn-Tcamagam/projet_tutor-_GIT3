@@ -1,0 +1,29 @@
+/* #blocsearchfestival {
+  margin: auto;
+  width: 50%;
+} */
+#blocsearchfestival {
+  display: flex;
+}
+
+img {
+  height: 250px;
+}
+/* RESPONSIVE DEBUT */
+
+@media screen and (max-width: 915px) {
+  #positioncardpetitecran {
+    margin-left: auto !important;
+  }
+}
+
+@media screen and (max-width: 844px) {
+  #positioncardpetitecran {
+    margin-left: -0.5rem !important;
+  }
+}
+@media screen and (max-width: 667px) {
+  #positioncardpetitecran {
+    margin-left: -1rem !important;
+  }
+}

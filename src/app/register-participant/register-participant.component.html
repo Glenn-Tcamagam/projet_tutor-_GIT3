@@ -1,0 +1,203 @@
+<section class="vh-100" style="background-color: #f5f5f5">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                  RESISTER
+                </p>
+                <p class="text-center text-muted">
+                  Create an account if you don't have one
+                </p>
+
+                <form
+                  class="mx-1 mx-md-4"
+                  novalidate
+                  (ngSubmit)="saveData()"
+                  [formGroup]="registerForm"
+                >
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <!-- input name -->
+                      <label class="form-label" for="name" Form
+                        >Your Name</label
+                      >
+                      <input
+                        type="text"
+                        id="name"
+                        class="form-control"
+                        formControlName="name"
+                        [ngClass]="{
+                          'is-invalid':
+                            registerForm.get('name')?.touched &&
+                            !registerForm.get('name')?.valid
+                        }"
+                      />
+
+                      <div class="invalid-feedback">
+                        <span
+                          *ngIf="registerForm.get('name')?.errors?.['required'] "
+                          >Please enter your name</span
+                        >
+                        <span
+                          *ngIf="registerForm.get('name')?.errors?.['minlength']"
+                          >Minimum 2 caracteres</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- input email -->
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="email">Your Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        formControlName="email"
+                        [ngClass]="{
+                          'is-invalid':
+                            registerForm.get('email')?.touched &&
+                            !registerForm.get('email')?.valid
+                        }"
+                      />
+                      <div class="invalid-feedback">
+                        <span
+                          *ngIf="registerForm.get('email')?.errors?.['required']"
+                          >Please enter your email adress</span
+                        >
+                        <span
+                          *ngIf="registerForm.get('email')?.errors?.['email']"
+                          >Your email adress isn't correct</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- input password -->
+                  <div formGroupName="passwordGroup">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control"
+                          formControlName="password"
+                          [ngClass]="{
+                            'is-invalid':
+                              registerForm.get('passwordGroup')?.errors ||
+                              (registerForm.get('passwordGroup.password')
+                                ?.touched &&
+                                !registerForm.get('passwordGroup.password')
+                                  ?.valid)
+                          }"
+                        />
+
+                        <div class="invalid-feedback">
+                          <span
+                            *ngIf="registerForm.get('passwordGroup.password')?.errors?.['required']"
+                            >Please enter your password</span
+                          >
+                          <span
+                            *ngIf="registerForm.get('passwordGroup.password')?.errors?.['minlength']"
+                            >Votre mot de passe est faible</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password-repeat"
+                          >Repeat your password</label
+                        >
+                        <input
+                          type="password"
+                          id="password_repeat"
+                          class="form-control"
+                          formControlName="password_repeat"
+                          [ngClass]="{
+                            'is-invalid':
+                              registerForm!.get('passwordGroup')?.errors ||
+                              ((registerForm!.get(
+                                'passwordGroup.password_repeat'
+                              )?.touched ||
+                                registerForm!.get(
+                                  'passwordGroup.password_repeat'
+                                )?.dirty) &&
+                                !registerForm!.get(
+                                  'passwordGroup.password_repeat'
+                                )?.valid)
+                          }"
+                        />
+                        <div class="invalid-feedback">
+                          <span
+                            *ngIf="registerForm.get('passwordGroup.password_repeat')?.errors?.['required']"
+                          >
+                            repeat your password
+                          </span>
+                          <!-- <span> the password is nor the same </span> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="agreeterms"
+                      formControlName="agreeterms"
+                    />
+                    <div class="feedback">
+                      <span> </span>
+                      <span> </span>
+                    </div>
+
+                    <label class="form-check-label" for="agreeterms">
+                      I agree all statements in
+                      <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning btn-lg btn-block col-8"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+                <div class="text-center text-muted">
+                  Already have an account?
+                  <a routerLink="/login-participant">login</a>
+                </div>
+              </div>
+              <!-- <div
+                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid"
+                  alt="Sample image"
+                />
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

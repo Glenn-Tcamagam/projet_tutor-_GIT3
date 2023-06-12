@@ -1,0 +1,7 @@
+/* RESPONSIVE DEBUT */
+@media screen and (max-width: 915px) {
+  img {
+    width: 30%;
+    height: 30%;
+  }
+}

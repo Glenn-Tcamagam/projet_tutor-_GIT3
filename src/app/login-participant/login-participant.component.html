@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="section-title mt-3" data-aos="fade-up">
+        <h2>Connectez vous à votre compte</h2>
+      </div>
+      <form data-aos="fade-up">
+        <div class="mb-3">
+          <label for="email" class="form-label">Adresse Mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="Entrer votre adresse mail"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de Passe</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Entrer votre Mot de Passe"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe" />
+          <label class="form-check-label" for="rememberMe"
+            >Enregistrer vos informations de connexion</label
+          >
+        </div>
+        <a href="" class="text-danger"> <div>mot de passe oublié ?</div></a>
+        <div>
+          Vous n'avez pas de compte ?
+          <a routerLink="/register-participant" class="text-primary"
+            >Creer un compte
+          </a>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-outline-primary">Connexion</button>
+      </form>
+    </div>
+  </div>
+</div>

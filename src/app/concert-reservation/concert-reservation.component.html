@@ -1,0 +1,186 @@
+<!-- debut concert -->
+
+<br />
+<div class="container" *ngIf="concert">
+  <div class="section-title" data-aos="fade-up">
+    <h2>Réservez Votre place pour le concert de {{ concert.nom }}</h2>
+  </div>
+  <div class="d-grid gap-2 col-8 mx-auto">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3" data-aos="fade-up">
+        <label for="nom" class="form-label">Nom</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="nom"
+          placeholder="Entrez votre nom"
+          formControlName="nom"
+          [ngClass]="{
+            'is-invalid': submitted && f['nom'].errors
+          }"
+        />
+        <div *ngIf="submitted && f['nom'].errors" class="invalid-feedback">
+          <div *ngIf="f['nom'].errors['required']">
+            Votre nom est obligatoire
+          </div>
+          <div *ngIf="f['nom'].errors['pattern']">Vérifiez votre nom</div>
+        </div>
+      </div>
+      <div class="mb-3" data-aos="fade-up">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="prenom"
+          placeholder="Entrez votre prenom"
+          formControlName="prenom"
+          [ngClass]="{
+            'is-invalid': submitted && f['prenom'].errors
+          }"
+        />
+        <div *ngIf="submitted && f['prenom'].errors" class="invalid-feedback">
+          <div *ngIf="f['prenom'].errors['required']">
+            Votre prénom est obligatoire
+          </div>
+          <div *ngIf="f['prenom'].errors['pattern']">Vérifiez votre prénom</div>
+        </div>
+      </div>
+      <div class="mb-3" data-aos="fade-up">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Entrez votre email"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid': submitted && f['email'].errors
+          }"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">
+            Entrez votre adress email
+          </div>
+          <div *ngIf="f['email'].errors['email']">
+            Votre Email n'est pas valide
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" data-aos="fade-up">
+        <label for="telephone" class="form-label">Téléphone</label>
+        <input
+          type="number"
+          class="form-control"
+          id="telephone"
+          placeholder="Entrez votre numéro de téléphone"
+          formControlName="telephone"
+          [ngClass]="{
+            'is-invalid': submitted && f['telephone'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && f['telephone'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['telephone'].errors['required']">
+            Entrez votre numéro de téléphone
+          </div>
+          <div *ngIf="f['telephone'].errors['pattern']">
+            Votre numéro est incorrecte
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" data-aos="fade-up">
+        <label for="date" class="form-label">Date de Naissance</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          formControlName="naissance"
+          [ngClass]="{
+            'is-invalid': submitted && f['naissance'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && f['naissance'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['naissance'].errors['required']">
+            Votre téléphone est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" data-aos="fade-up">
+        <label for="residence" class="form-label">Lieu de résidence</label>
+        <input
+          type="text"
+          class="form-control"
+          id="résidence"
+          placeholder="Entrez votre Lieu de résidence"
+          formControlName="residence"
+          [ngClass]="{
+            'is-invalid': submitted && f['residence'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && f['residence'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['residence'].errors['required']">
+            Votre résidence est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" data-aos="fade-up">
+        <label for="identifiant" class="form-label">N°cni ou Passport</label>
+        <input
+          type="text"
+          class="form-control"
+          id="identifiant"
+          placeholder="Entrez votre N°cni ou Passport"
+          formControlName="cni"
+          [ngClass]="{
+            'is-invalid': submitted && f['cni'].errors
+          }"
+        />
+        <div *ngIf="submitted && f['cni'].errors" class="invalid-feedback">
+          <div *ngIf="f['cni'].errors['required']">
+            Entrer votre numéro de cni ou passport
+          </div>
+        </div>
+      </div>
+      <!-- <div class="mb-3">
+      <label for="nombre_personnes" class="form-label"
+        >Nombre de personnes</label
+      >
+      <input
+        disabled
+        type="number"
+        class="form-control"
+        id="nombre_personnes"
+        placeholder="Entrez le nombre de personnes"
+      />
+    </div> -->
+      <br />
+      <div class="text-center" data-aos="fade-up">
+        <button type="submit" class="btn btn-outline-secondary col-6">
+          Réserver
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<br />
+
+<br /><br /><br />
+<br />
+<app-footer></app-footer>
+
+<!-- <div class="container" data-aos="fade-up">
+  <div class="section-title">
+    <h2>Services</h2>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reprehenderit
+    deserunt, aspernatur consequuntur eaque hic adipisci iusto incidunt earum
+    nisi nulla sunt distinctio architecto iure laboriosam atque. Quo, a sequi?
+  </div>
+</div> -->

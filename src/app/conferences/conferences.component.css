@@ -1,0 +1,25 @@
+#blocsearchconference {
+  display: flex;
+}
+
+img {
+  height: 250px;
+}
+
+/* RESPONSIVE DEBUT */
+
+@media screen and (max-width: 915px) {
+  #positioncardpetitecran {
+    margin-left: auto !important;
+  }
+}
+@media screen and (max-width: 844px) {
+  #positioncardpetitecran {
+    margin-left: -1rem !important;
+  }
+}
+@media screen and (max-width: 667px) {
+  #positioncardpetitecran {
+    margin-left: -1.5rem !important;
+  }
+}

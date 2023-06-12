@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  color: #fff;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 12px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+  color: #ffb727;
+}
+#imgcarousel {
+  width: 100vh;
+  height: 100vh;
+}
+#ancrecarousel {
+  text-decoration: none;
+  color: white;
+}
+
+.active {
+  color: #ffb727;
+}
+
+/* RESPONSIVE DEBUT */
+@media screen and (max-width: 915px) {
+  #imagenavbar {
+    width: 12%;
+    height: 12%;
+  }
+  #imgcarousel {
+    width: 50vh;
+    height: 50vh;
+  }
+}
+/* @media screen and (max-width: 667px) {
+    #imgcarousel {
+      width: 50vh;
+      height: 60vh;
+    }
+  }
+} */

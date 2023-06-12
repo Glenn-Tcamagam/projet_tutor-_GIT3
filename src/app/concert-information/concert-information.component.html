@@ -1,0 +1,71 @@
+<br />
+
+<div class="card" *ngIf="concert" style="width: 100%">
+  <br />
+  <div class="section-title" id="blocconcert" data-aos="fade-up">
+    <!-- <div class="text-center" style="font-size: 20px"> -->
+    <h2>
+      Informations à connaitre pour le prochain concert de
+      <strong>{{ concert.nom }}</strong>
+    </h2>
+  </div>
+  <div class="container">
+    <div>
+      <img
+        [src]="concert.image"
+        width="100%"
+        height="600Px"
+        alt=""
+        data-aos="fade-up"
+      />
+    </div>
+
+    <br />
+
+    <ul class="list-group">
+      <!-- Liste HTML classique : -->
+      <!-- <li class="list-group-item"> Défaut</li> -->
+
+      <li class="list-group-item list-group-item-secondary" data-aos="fade-up">
+        <span>Nom de l'artiste: </span>
+        <strong>{{ concert.nom }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-light" data-aos="fade-up">
+        <span>titre: </span>
+        <strong>{{ concert.titre }}</strong>
+      </li>
+
+      <li class="list-group-item list-group-item-secondary" data-aos="fade-up">
+        <span> Desciption: </span> <strong>{{ concert.description }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-light" data-aos="fade-up">
+        <span>Date: </span>
+        <strong>{{ concert.date }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-secondary" data-aos="fade-up">
+        <span>Lieu: </span>
+        <strong>{{ concert.lieu }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-light" data-aos="fade-up">
+        <span>Heure de debut </span>
+        <strong>{{ concert.heure_debut }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-secondary" data-aos="fade-up">
+        <span>Heure de fin: </span>
+        <strong>{{ concert.heure_fin }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-light" data-aos="fade-up">
+        <span>Réservation VIP: </span>
+        <strong>{{ concert.reservation_vip }}</strong>
+      </li>
+      <li class="list-group-item list-group-item-secondary" data-aos="fade-up">
+        <span>Réservation classic: </span>
+        <strong>{{ concert.reservation_classic }}</strong>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<br /><br /><br />
+<br />
+<app-footer></app-footer>
