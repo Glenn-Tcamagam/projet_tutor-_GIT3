@@ -36,43 +36,83 @@
   </div>
 </form>
 <!-- FIN BARRE DE RECHERHCE FESTIVAL-->
-
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4 d-md-block">
+  <div class="col"> -->
 <!-- DEBUT SECTION LISTE FESTIVAL -->
 
-<div
-  class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center m-2"
-  id="positioncardpetitecran"
-  data-aos="fade-up"
->
-  <!-- <div class="row row-cols-1 row-cols-md-3 g-4 d-md-block">
-  <div class="col"> -->
-  <div
-    *ngFor="
-      let festival of filterinputsearch
-        | paginate : { itemsPerPage: 3, currentPage: p }
-    "
-    class="paginate"
-  >
-    <div class="card m-3" style="width: 22rem" festivalBorderCard>
-      <img [src]="festival.image" class="card-img-top" alt="..." />
-      <div class="card-body text-center">
-        <h5 class="card-title">{{ festival.titre }}</h5>
-        <p class="card-text">
-          {{ festival.description }}
-        </p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        <div class="d-flex justify-content-center align-items-center">
-          <a (click)="goToInformationFestival(festival)"
-            ><button class="btn btn-warning" type="button">
-              Information
-            </button></a
-          >
-          &nbsp;
-          <a (click)="goToReservationFestival(festival)"
-            ><button class="btn btn-outline-primary" type="button">
-              RESERVER
-            </button></a
-          >
+<!-- debut grand ecran -->
+<div class="container" id="grandecran" data-aos="fade-up">
+  <div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <div
+        *ngFor="
+          let festival of filterinputsearch
+            | paginate : { itemsPerPage: 3, currentPage: p }
+        "
+        class="paginate"
+      >
+        <div class="card m-3" style="width: 22rem" festivalBorderCard>
+          <img [src]="festival.image" class="card-img-top" alt="..." />
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ festival.titre }}</h5>
+            <p class="card-text">
+              {{ festival.description }}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <div class="d-flex justify-content-center align-items-center">
+              <a (click)="goToInformationFestival(festival)"
+                ><button class="btn btn-warning" type="button">
+                  Information
+                </button></a
+              >
+              &nbsp;
+              <a (click)="goToReservationFestival(festival)"
+                ><button class="btn btn-outline-primary" type="button">
+                  RESERVER
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin grand ecran -->
+
+<!-- debut petit ecran -->
+<div class="container" id="petitecran" data-aos="fade-up">
+  <div class="row">
+    <div class="col-12">
+      <div
+        *ngFor="
+          let festival of filterinputsearch
+            | paginate : { itemsPerPage: 3, currentPage: p }
+        "
+        class="paginate"
+      >
+        <div class="card m-4" id="cardtaillepetitecran" festivalBorderCard>
+          <img [src]="festival.image" class="card-img-top" alt="..." />
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ festival.titre }}</h5>
+            <p class="card-text">
+              {{ festival.description }}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <div class="d-flex justify-content-center align-items-center">
+              <a (click)="goToInformationFestival(festival)"
+                ><button class="btn btn-warning" type="button">
+                  Information
+                </button></a
+              >
+              &nbsp;
+              <a (click)="goToReservationFestival(festival)"
+                ><button class="btn btn-outline-primary" type="button">
+                  RESERVER
+                </button></a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>

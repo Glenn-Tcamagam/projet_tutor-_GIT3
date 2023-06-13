@@ -9,21 +9,40 @@
 img {
   height: 250px;
 }
+#petitecran {
+  display: none;
+}
 /* RESPONSIVE DEBUT */
 
-@media screen and (max-width: 915px) {
-  #positioncardpetitecran {
-    margin-left: auto !important;
+@media screen and (max-width: 414px) {
+  #grandecran {
+    display: none;
+  }
+  #petitecran {
+    display: initial;
+  }
+  #cardtaillepetitecran {
+    width: 22.9rem;
+  }
+  #pagination {
+    margin-left: -2.5rem;
   }
 }
-
-@media screen and (max-width: 844px) {
-  #positioncardpetitecran {
-    margin-left: -0.5rem !important;
+@media screen and (max-width: 390px) {
+  #cardtaillepetitecran {
+    width: 21.4rem;
+  }
+  #pagination {
+    margin-left: -2.5rem;
   }
 }
-@media screen and (max-width: 667px) {
-  #positioncardpetitecran {
-    margin-left: -1rem !important;
+@media screen and (max-width: 375px) {
+  #cardtaillepetitecran {
+    width: 20.5rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  #cardtaillepetitecran {
+    width: 19.5rem;
   }
 }
