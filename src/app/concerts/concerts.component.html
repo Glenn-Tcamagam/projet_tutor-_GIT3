@@ -39,55 +39,104 @@
   <!-- FIN BARRE DE RECHERHCE CONCERT-->
 
   <!-- DEBUT SECTION LISTE CONCERT -->
+  <!-- class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center m-2 ms-auto" -->
 
-  <div
-    class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center m-2"
-    id="positioncardpetitecran"
-    data-aos="fade-up"
-  >
-    <!-- <div class="row row-cols-1 row-cols-md-3 g-4 d-md-block">
+  <!-- <div class="row row-cols-1 row-cols-md-3 g-4 d-md-block">
   <div class="col"> -->
-    <div
-      *ngFor="
-        let concert of filterinputsearch
-          | paginate : { itemsPerPage: 3, currentPage: p }
-      "
-      class="paginate"
-    >
-      <div
-        class="card m-4"
-        style="width: 22rem"
-        id="cardtaillepetitecran"
-        concertBorderCard
-      >
-        <img [src]="concert.image" class="card-img-top" alt="..." />
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ concert.titre }}</h5>
-          <p class="card-text">
-            {{ concert.description }}
-          </p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-          <div class="d-flex justify-content-center align-items-center">
-            <a (click)="goToInformationConcert(concert)">
-              <button class="btn btn-warning" type="button">Information</button>
-            </a>
-            &nbsp;
-            <a (click)="goToReservationConcert(concert)"
-              ><button class="btn btn-outline-primary" type="button">
-                RESERVER
-              </button></a
-            >
+
+  <!-- debut grand ecran -->
+  <div class="container" data-aos="fade-up" id="grandecran">
+    <div class="row">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div
+          *ngFor="
+            let concert of filterinputsearch
+              | paginate : { itemsPerPage: 3, currentPage: p }
+          "
+          class="paginate"
+        >
+          <div
+            class="card m-4"
+            style="width: 22rem"
+            id="cardtaillepetitecran"
+            concertBorderCard
+          >
+            <img [src]="concert.image" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ concert.titre }}</h5>
+              <p class="card-text">
+                {{ concert.description }}
+              </p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <div class="d-flex justify-content-center align-items-center">
+                <a (click)="goToInformationConcert(concert)">
+                  <button class="btn btn-warning" type="button">
+                    Information
+                  </button>
+                </a>
+                &nbsp;
+                <a (click)="goToReservationConcert(concert)"
+                  ><button class="btn btn-outline-primary" type="button">
+                    RESERVER
+                  </button></a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="stylepaginate text-center" data-aos="fade-up">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div>
-<!-- FIN SECTION LISTE CONCERT -->
-<!-- <div class="fade-in" id="myElemennt">
+  <!-- fin grand ecran -->
+
+  <!-- debut petit ecran -->
+
+  <div class="container" data-aos="fade-up" id="petitecran">
+    <div class="row">
+      <div class="col-12">
+        <div
+          *ngFor="
+            let concert of filterinputsearch
+              | paginate : { itemsPerPage: 3, currentPage: p }
+          "
+          class="paginate"
+        >
+          <div class="card m-4" id="cardtaillepetitecran" concertBorderCard>
+            <!-- style="width: 22rem" -->
+            <img [src]="concert.image" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ concert.titre }}</h5>
+              <p class="card-text">
+                {{ concert.description }}
+              </p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <div class="d-flex justify-content-center align-items-center">
+                <a (click)="goToInformationConcert(concert)">
+                  <button class="btn btn-warning" type="button">
+                    Information
+                  </button>
+                </a>
+                &nbsp;
+                <a (click)="goToReservationConcert(concert)"
+                  ><button class="btn btn-outline-primary" type="button">
+                    RESERVER
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fin petit ecran -->
+
+  <div class="stylepaginate text-center" data-aos="fade-up">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <!-- FIN SECTION LISTE CONCERT -->
+  <!-- <div class="fade-in" id="myElemennt">
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos tempore
   carousel-caption
 </div>
@@ -96,9 +145,9 @@
     document.getElementById("myElement").classList.add("show");
   }, 1000);
 </script> -->
-<br />
+  <br />
 
-<!-- <div class="container">
+  <!-- <div class="container">
   <h1 class="fade-up">Fade In Example</h1>
   <p class="fade-up">This element will fade in.</p>
 </div>
@@ -119,3 +168,4 @@
     }
   }
 </style> -->
+</div>
