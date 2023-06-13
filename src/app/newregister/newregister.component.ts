@@ -52,7 +52,7 @@ export class NewregisterComponent implements OnInit {
           "",
           [
             Validators.required,
-            Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$"),
+            Validators.pattern("^[a-zA-Z]{8,}$"),
             // Validators.minLength(7),
             // Validators.maxLength(40),
           ],
