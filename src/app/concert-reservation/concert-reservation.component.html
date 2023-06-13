@@ -95,9 +95,9 @@
               <div *ngIf="f['telephone'].errors['required']">
                 Entrez votre numéro de téléphone
               </div>
-              <div *ngIf="f['telephone'].errors['pattern']">
+              <!-- <div *ngIf="f['telephone'].errors['pattern']">
                 Votre numéro est incorrecte
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="mb-3" data-aos="fade-up">
@@ -116,7 +116,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f['naissance'].errors['required']">
-                Votre téléphone est obligatoire
+                Votre date de naissance est obligatoire
               </div>
             </div>
           </div>

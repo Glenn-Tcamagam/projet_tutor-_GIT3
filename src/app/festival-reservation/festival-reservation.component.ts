@@ -70,7 +70,7 @@ export class FestivalReservationComponent implements OnInit {
       //   ],
       // ],
       email: ["", [Validators.required, Validators.email]],
-      telephone: ["", [Validators.required, Validators.pattern("/^6d{8}$/")]],
+      telephone: ["", [Validators.required, Validators.pattern("")]],
       naissance: ["", [Validators.required]],
       residence: ["", Validators.required],
       cni: ["", Validators.required],
