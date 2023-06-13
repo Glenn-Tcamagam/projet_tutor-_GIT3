@@ -1,148 +1,160 @@
 <div class="section-title mt-3" data-aos="fade-up">
   <h2>Créer votre compte</h2>
 </div>
-<div class="d-grid gap-2 col-6 mx-auto" data-aos="fade-up">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="name" class="form-label">Nom & Prénom</label>
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        placeholder="Entrer votre nom complet"
-        formControlName="fullname"
-        [ngClass]="{
-          'is-invalid': submitted && f['fullname'].errors
-        }"
-      />
-      <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
-        <div *ngIf="f['fullname'].errors['required']">
-          Votre nom est obligatoire
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3" data-aos="fade-up">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom & Prénom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Entrer votre nom complet"
+            formControlName="fullname"
+            [ngClass]="{
+              'is-invalid': submitted && f['fullname'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && f['fullname'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['fullname'].errors['required']">
+              Votre nom est obligatoire
+            </div>
+            <div *ngIf="f['fullname'].errors['pattern']">
+              Vérifier votre nom
+            </div>
+          </div>
         </div>
-        <div *ngIf="f['fullname'].errors['pattern']">Vérifier votre nom</div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Addresse Mail</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        placeholder="Entrer votre adresse mail"
-        formControlName="email"
-        [ngClass]="{
-          'is-invalid': submitted && f['email'].errors
-        }"
-      />
-      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">
-          Votre mail est obligatoire
+        <div class="mb-3">
+          <label for="email" class="form-label">Addresse Mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Entrer votre adresse mail"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': submitted && f['email'].errors
+            }"
+          />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">
+              Votre mail est obligatoire
+            </div>
+            <div *ngIf="f['email'].errors['email']">
+              Votre mail n'est pas valide
+            </div>
+          </div>
         </div>
-        <div *ngIf="f['email'].errors['email']">
-          Votre mail n'est pas valide
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Entrer votre mot de passe"
+            formControlName="password"
+            [ngClass]="{
+              'is-invalid': submitted && f['password'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && f['password'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['password'].errors['required']">
+              Mot de Passe Obligatoire
+            </div>
+            <div *ngIf="f['password'].errors['pattern']">
+              Votre Mot de Passe est Faible
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+              Votre Mot de Passe ne doit pas contenir plus de 40 Caractères
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Mot de passe</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        placeholder="Entrer votre mot de passe"
-        formControlName="password"
-        [ngClass]="{
-          'is-invalid': submitted && f['password'].errors
-        }"
-      />
-      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-        <div *ngIf="f['password'].errors['required']">
-          Mot de Passe Obligatoire
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label"
+            >Confirme Mot de Passe</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            placeholder="Confirmer votre mot de passe"
+            formControlName="confirmpassword"
+            [ngClass]="{
+              'is-invalid': submitted && f['confirmPassword'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && f['confirmPassword'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['confirmPassword'].errors['required']">
+              Confirmer votre Mot de Passe
+            </div>
+            <div *ngIf="f['confirmPassword'].errors['matching']">
+              Votre Mot de Passe n'est pas correct
+            </div>
+          </div>
         </div>
-        <div *ngIf="f['password'].errors['pattern']">
-          Votre Mot de Passe est Faible
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="terms"
+            formControlName="acceptTerms"
+            [ngClass]="{
+              'is-invalid': submitted && f['acceptTerms'].errors
+            }"
+          />
+          <label class="form-check-label" for="terms"
+            >J'accepte les termes et conditions</label
+          >
+          <div
+            *ngIf="submitted && f['acceptTerms'].errors"
+            class="invalid-feedback"
+          >
+            Vous devez accepter les
+            <a href="#!" class="text-body"
+              ><u style="color: #0275d8">termes et condition</u></a
+            >
+          </div>
         </div>
-        <div *ngIf="f['password'].errors['maxlength']">
-          Votre Mot de Passe ne doit pas contenir plus de 40 Caractères
+        <div class="d-flex justify-content-center">
+          <div class="form-group">
+            <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-outline-warning float-right"
+            >
+              Effacer
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-outline-primary">
+              S'enregistrer
+            </button>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="confirmPassword" class="form-label"
-        >Confirme Mot de Passe</label
-      >
-      <input
-        type="password"
-        class="form-control"
-        id="confirmPassword"
-        placeholder="Confirmer votre mot de passe"
-        formControlName="confirmpassword"
-        [ngClass]="{
-          'is-invalid': submitted && f['confirmPassword'].errors
-        }"
-      />
-      <div
-        *ngIf="submitted && f['confirmPassword'].errors"
-        class="invalid-feedback"
-      >
-        <div *ngIf="f['confirmPassword'].errors['required']">
-          Confirmer votre Mot de Passe
-        </div>
-        <div *ngIf="f['confirmPassword'].errors['matching']">
-          Votre Mot de Passe n'est pas correct
-        </div>
-      </div>
-    </div>
-    <div class="mb-3 form-check">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="terms"
-        formControlName="acceptTerms"
-        [ngClass]="{
-          'is-invalid': submitted && f['acceptTerms'].errors
-        }"
-      />
-      <label class="form-check-label" for="terms"
-        >J'accepte les termes et conditions</label
-      >
-      <div
-        *ngIf="submitted && f['acceptTerms'].errors"
-        class="invalid-feedback"
-      >
-        Vous devez accepter les
-        <a href="#!" class="text-body"
-          ><u style="color: #0275d8">termes et condition</u></a
-        >
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <div class="form-group">
-        <button
-          type="button"
-          (click)="onReset()"
-          class="btn btn-outline-warning float-right"
-        >
-          Effacer
-        </button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-outline-primary">
-          S'enregistrer
-        </button>
-      </div>
-    </div>
-    <p class="text-center text-muted mt-4 mb-0">
-      Avez-vous déja un compte?
-      <a routerLink="/login-participant" class="fw-bold text-body"
-        ><u style="color: #0275d8">me connecter</u></a
-      >
-    </p>
-    <!-- <div class="text-center" data-aos="fade-up">
+        <p class="text-center text-muted mt-4 mb-0">
+          Avez-vous déja un compte?
+          <a routerLink="/login-participant" class="fw-bold text-body"
+            ><u style="color: #0275d8">me connecter</u></a
+          >
+        </p>
+        <!-- <div class="text-center" data-aos="fade-up">
       <button type="submit" class="btn btn-outline-primary col-6">
         S'enregistrer
       </button>
     </div> -->
-  </form>
+      </form>
+    </div>
+  </div>
 </div>
 
 <!-- <section class="vh-100" style="background-color: #f3f5f7">
