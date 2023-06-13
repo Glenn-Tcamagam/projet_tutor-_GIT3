@@ -72,10 +72,16 @@ img {
   #cardtaillepetitecran {
     width: 22.9rem;
   }
+  #pagination {
+    margin-left: -2.5rem;
+  }
 }
 @media screen and (max-width: 390px) {
   #cardtaillepetitecran {
     width: 21.4rem;
+  }
+  #pagination {
+    margin-left: -2.5rem;
   }
 }
 @media screen and (max-width: 375px) {
